@@ -1,0 +1,54 @@
+<!-- Contenedor Principal con fondo de pantalla -->
+<div class="container-fluid bg-custom-fondo min-vh-100 d-flex flex-column justify-content-between p-0">
+  
+  <div class="container py-4">
+    
+    <!-- HEADER -->
+    <header class="p-3 mb-4 bg-dark bg-opacity-75 rounded shadow border border-secondary d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-center">
+        <!-- Imagen del logo integrada desde la carpeta public -->
+        <img src="CineVerse.png" alt="Logo CineVerse" class="me-3" style="height: 55px; width: auto;">
+        <div>
+          <h1 class="h2 mb-0 fw-bold text-warning">CineVerse</h1>
+          <p class="text-light mb-0 small opacity-75">Catálogo Digital de Producciones Cinematográficas</p>
+        </div>
+      </div>
+
+      <!-- Botones de navegación integrados -->
+      <nav class="d-flex align-items-center gap-2">
+        <a routerLink="/" class="btn btn-outline-warning btn-sm fw-semibold">Inicio</a>
+        <a routerLink="/movies" class="btn btn-warning btn-sm fw-semibold text-dark">Catálogo</a>
+      </nav>
+
+      <span class="badge bg-warning text-dark fs-6 d-none d-md-inline-block">v1.0 Frontend</span>
+    </header>
+
+    <!-- AQUÍ SE INYECTAN DINÁMICAMENTE LAS VISTAS (Inicio o Catálogo) -->
+    <main class="mb-4">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white py-4 mt-auto border-top border-secondary bg-opacity-95">
+    <div class="container">
+      <div class="row text-center text-md-start align-items-center">
+        <!-- Datos de la Materia -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <h5 class="text-warning h6 fw-bold text-uppercase mb-2">Datos de la Materia</h5>
+          <p class="mb-1 small text-light">Conceptualización de entornos de desarrollo de aplicaciones y servicio</p>
+          <p class="mb-0 small text-light opacity-75">UdeG Virtual | Licenciatura en Desarrollo de Sistemas Web</p>
+        </div>
+        <!-- Datos del Estudiante -->
+        <div class="col-md-6 text-md-end">
+          <h5 class="text-warning h6 fw-bold text-uppercase mb-2">Información del Alumno</h5>
+          <p class="mb-1 small text-light"><strong>Nombre:</strong> Juan Oswaldo Barroso Contreras</p>
+          <p class="mb-1 small text-light"><strong>Código:</strong> 208625794</p>
+          <p class="mb-0 small text-light"><strong>Contacto:</strong> <a href="mailto:juan.barroso2579@alumnos.udg.mx" class="text-warning text-decoration-none">juan.barroso2579@alumnos.udg.mx</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>

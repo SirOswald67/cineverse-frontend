@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-warning">Catálogo de Producciones Cinematográficas</h2>
+    <!-- Botón para ir al formulario de Agregar (Punto 5) -->
+    <a routerLink="/movies/add" class="btn btn-success">
+      + Agregar Película
+    </a>
+  </div>
+
+  <table class="table table-dark table-striped table-hover shadow-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Director / Año</th>
+        <th class="text-center">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of moviesList">
+        <td>{{ movie.id }}</td>
+        <td>
+          <!-- Al hacer clic en el título, redirige a la vista detallada (Punto 3) -->
+          <a [routerLink]="['/movies', movie.id]" class="text-decoration-none text-info fw-bold">
+            {{ movie.title }}
+          </a>
+        </td>
+        <td>{{ movie.director }} ({{ movie.year }})</td>
+        <td class="text-center">
+          <!-- Botón para ver la vista detallada donde estarán los botones de Editar y Eliminar -->
+          <a [routerLink]="['/movies', movie.id]" class="btn btn-sm btn-primary">
+            Ver Detalle
+          </a>
+        </td>
+      </tr>
+      <tr *ngIf="moviesList.length === 0">
+        <td colspan="4" class="text-center text-muted py-4">Cargando registros o sin elementos disponibles.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

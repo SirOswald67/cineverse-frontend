@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white">
+          <h3 class="mb-0">Agregar Nueva Película</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="saveMovie()" #movieForm="ngForm">
+            
+            <!-- Título -->
+            <div class="mb-3">
+              <label for="title" class="form-label fw-bold">Título de la Película</label>
+              <input type="text" id="title" class="form-control" [(ngModel)]="movie.title" name="title" required placeholder="Ej. Inception">
+            </div>
+
+            <!-- Director -->
+            <div class="mb-3">
+              <label for="director" class="form-label fw-bold">Director</label>
+              <input type="text" id="director" class="form-control" [(ngModel)]="movie.director" name="director" required placeholder="Ej. Christopher Nolan">
+            </div>
+
+            <!-- Año y Género -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="year" class="form-label fw-bold">Año</label>
+                <input type="number" id="year" class="form-control" [(ngModel)]="movie.year" name="year" required placeholder="Ej. 2010">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="genre" class="form-label fw-bold">Género</label>
+                <input type="text" id="genre" class="form-control" [(ngModel)]="movie.genre" name="genre" placeholder="Ej. Ciencia Ficción">
+              </div>
+            </div>
+
+            <!-- Portada (Cover) -->
+            <div class="mb-3">
+              <label for="cover" class="form-label fw-bold">Portada (URL de la imagen)</label>
+              <input type="text" id="cover" class="form-control" [(ngModel)]="movie.cover" name="cover" required placeholder="https://ejemplo.com/imagen.jpg">
+            </div>
+
+            <!-- Sinopsis -->
+            <div class="mb-3">
+              <label for="synopsis" class="form-label fw-bold">Sinopsis</label>
+              <textarea id="synopsis" class="form-control" [(ngModel)]="movie.synopsis" name="synopsis" rows="3" required placeholder="Breve descripción de la película"></textarea>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="d-flex justify-content-between mt-4">
+              <a routerLink="/movies" class="btn btn-secondary">
+                Cancelar
+              </a>
+              <button type="submit" class="btn btn-success" [disabled]="!movieForm.form.valid">
+                Guardar Película
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
